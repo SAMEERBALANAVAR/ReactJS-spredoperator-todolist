@@ -16,7 +16,13 @@ function App() {
     setInputText("");
   }
 
-  function deleteItem() {}
+  function deleteItem(id) {
+    setItems((prevItem) => {
+      return prevItem.filter((item, index) => {
+        return index !== id;
+      });
+    });
+  }
 
   return (
     <div className="container">
