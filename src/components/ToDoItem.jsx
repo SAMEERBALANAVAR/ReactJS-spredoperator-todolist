@@ -1,9 +1,9 @@
 import react from "react";
 
-function ToDoItem() {
+function ToDoItem(props) {
   return (
     <div>
-      <li>Text</li>
+      <li>{props.text}</li>
     </div>
   );
 }
