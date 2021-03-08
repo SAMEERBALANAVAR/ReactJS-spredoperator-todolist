@@ -1,5 +1,6 @@
 import React, { useReducer, useState } from "react";
 import ToDoItem from "./ToDoItem";
+import InputArea from "./InputArea";
 function App() {
   const [inputText, setInputText] = useState("");
   const [items, setItems] = useState([]);
@@ -9,11 +10,10 @@ function App() {
     setInputText(newValue);
   }
 
-  function addItem() {
+  function addItem(inputText) {
     setItems((prevItem) => {
       return [...prevItem, inputText];
     });
-    setInputText("");
   }
 
   function deleteItem(id) {
@@ -29,12 +29,7 @@ function App() {
       <div className="heading">
         <h1>To-Do List</h1>
       </div>
-      <div className="form">
-        <input onChange={handleChange} type="text" value={inputText} />
-        <button onClick={addItem}>
-          <span>Add</span>
-        </button>
-      </div>
+      <InputArea onAdd={addItem} />
       <div>
         <ul>
           {items.map((todoItem, index) => (
